@@ -1,0 +1,68 @@
+@startuml Diagrama Classe Dominio
+
+abstract class Pessoa {
+  nome
+  login
+  senha
+}
+
+class Funcionario {
+  dados:
+}
+
+class Admin {
+  dados:
+}
+
+class Espectador {
+  dados:
+}
+
+class UnidadeCinema{
+    razao_social
+    cnpj
+    endereco
+}
+
+class Sessao {
+    id
+    horario
+    lotacao
+}
+
+class Filme {
+    titulo
+    duração
+    tema
+    classificacao
+    diretor
+    elenco
+}
+
+class Sala {
+    descricao
+    lotacao_maxima
+}
+
+enum Cartaz {
+  Sim
+  Nao
+}
+
+enum SessaoIniciada {
+    Sim
+    Nao
+}
+
+Pessoa <|-- Funcionario
+Pessoa <|-- Admin
+Pessoa <|-- Espectador
+
+UnidadeCinema --|> Sessao
+Sessao --|> Sala
+Sessao --|> Filme
+Sessao --> SessaoIniciada
+
+Filme --> Cartaz
+
+@enduml
