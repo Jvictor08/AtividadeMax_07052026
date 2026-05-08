@@ -1,0 +1,27 @@
+@startuml Diagrama caso de uso
+left to right direction
+
+actor Admin
+actor Funcionario
+actor Espectador
+
+rectangle Sistema {
+  (Login)
+  (Cadastrar Filme)
+  (Consultar Filmes) 
+  (Registrar sessão)
+  (Registrar Espectador na sessão)
+  (Consultar Relatorio)
+}
+
+Admin --> (Login)
+Funcionario --> (Login)
+Espectador --> (Login)
+Funcionario --> (Cadastrar Filme)
+Espectador --> (Consultar Filmes) 
+Funcionario --> (Registrar sessão)
+Espectador --> (Registrar Espectador na sessão)
+Funcionario --> (Registrar Espectador na sessão)
+Admin --> (Consultar Relatorio)
+
+@enduml

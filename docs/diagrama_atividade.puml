@@ -1,0 +1,28 @@
+@startuml Diagrama Atividade
+|Funcionario|
+start
+|Funcionario|
+:Login;
+:Envia Credenciais;
+
+|Sistema|
+:Valida credenciais;
+
+|Funcionario|
+:Menu Principal;
+:Cadastro de Sessão;
+:Envia Informacoes;
+
+|Sistema|
+if (Válidas?) then (sim)
+  :Retorna Sessão cadastrada;
+else (não)
+  :Exibe erro;
+endif
+
+|Funcionario|
+:Recebe retorno em tela;
+:Volta ao menu principal;
+
+stop
+@enduml

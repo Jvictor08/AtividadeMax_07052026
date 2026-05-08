@@ -1,0 +1,26 @@
+@startuml Diagrama Sequencia
+
+actor Funcionario
+participant "Console" as Console
+participant Controller
+participant Service
+participant "Banco de Dados" as BD
+
+Funcionario -> Console: CadastrarSessao ()
+Console -> Controller : EnviaDadosCadastro()
+
+activate Controller
+Controller -> Service : processarCadastro()
+activate Service
+
+Service -> BD : SalvarCadastro()
+BD --> Service : ok
+
+Service --> Controller : SessaoCriada
+deactivate Service
+
+Controller --> Console : confirmação
+deactivate Controller
+
+Console --> Funcionario : SessaoCriada
+@enduml
